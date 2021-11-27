@@ -33,11 +33,11 @@ namespace PROJETO.DataProviders
 		public DashBoard_Corporativo_Grid6GridDataProvider DashBoard_Corporativo_Grid6Provider;
 		public DashBoard_Corporativo_Grid7GridDataProvider DashBoard_Corporativo_Grid7Provider;
 		public DashBoard_Corporativo_Grid8GridDataProvider DashBoard_Corporativo_Grid8Provider;
-		public _25246FASTRAX_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
-		public _25246FASTRAX_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
-		public _25246FASTRAX_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
-		public _25246FASTRAX_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
-		public _25246FASTRAX_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
+		public _BD_DADOS_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
+		public _BD_DADOS_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
+		public _BD_DADOS_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
+		public _BD_DADOS_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
+		public _BD_DADOS_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
 		public List<RadComboBoxDataItem> Grid3_GridColumn104Items
 		{
 			get
@@ -65,13 +65,13 @@ namespace PROJETO.DataProviders
 		public DashBoard_CorporativoPageProvider(IGeneralDataProvider Provider)
 		{
 			MainProvider = Provider;
-			MainProvider.DataProvider = new _25246FASTRAX_TB_PARAMETRODataProvider(MainProvider, MainProvider.TableName, MainProvider.DatabaseName, "", "DashBoard_Corporativo");
+			MainProvider.DataProvider = new _BD_DADOS_TB_PARAMETRODataProvider(MainProvider, MainProvider.TableName, MainProvider.DatabaseName, "", "DashBoard_Corporativo");
 			MainProvider.DataProvider.PageProvider = this;
-			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _25246FASTRAX_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "25246FASTRAX", "", "AUX_DashBoard_Corporativo_TB_NEGOCIO");
-			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _25246FASTRAX_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "25246FASTRAX", "", "AUX_DashBoard_Corporativo_TB_TAREFA");
-			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _25246FASTRAX_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "25246FASTRAX", "", "AUX_DashBoard_Corporativo_VIEW_TAREFAS");
-			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _25246FASTRAX_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "25246FASTRAX", "", "AUX_DashBoard_Corporativo_TB_VENDAS");
-			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _25246FASTRAX_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "25246FASTRAX", "", "AUX_DashBoard_Corporativo_TB_ASISTENCIA");
+			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _BD_DADOS_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "BD_DADOS", "", "AUX_DashBoard_Corporativo_TB_NEGOCIO");
+			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _BD_DADOS_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "BD_DADOS", "", "AUX_DashBoard_Corporativo_TB_TAREFA");
+			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _BD_DADOS_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "BD_DADOS", "", "AUX_DashBoard_Corporativo_VIEW_TAREFAS");
+			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _BD_DADOS_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "BD_DADOS", "", "AUX_DashBoard_Corporativo_TB_VENDAS");
+			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _BD_DADOS_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "BD_DADOS", "", "AUX_DashBoard_Corporativo_TB_ASISTENCIA");
 			DashBoard_Corporativo_Grid2Provider = new DashBoard_Corporativo_Grid2GridDataProvider(this);
 			DashBoard_Corporativo_Grid2Provider.SetRelationFields += new GeneralGridProvider.SetRelationFieldsEventHandler(DashBoard_Corporativo_Grid2Provider_SetRelationFields);
 			DashBoard_Corporativo_Grid3Provider = new DashBoard_Corporativo_Grid3GridDataProvider(this);
@@ -200,27 +200,27 @@ namespace PROJETO.DataProviders
 		{
 			if (Provider == MainProvider.DataProvider)
 			{ 
-				return new _25246FASTRAX_TB_PARAMETROItem(MainProvider.DatabaseName);
+				return new _BD_DADOS_TB_PARAMETROItem(MainProvider.DatabaseName);
 			}
 			else if (Provider.Name == "AUX_DashBoard_Corporativo_TB_NEGOCIO")
 			{
-				return new _25246FASTRAX_TB_NEGOCIOItem("25246FASTRAX");
+				return new _BD_DADOS_TB_NEGOCIOItem("BD_DADOS");
 			}
 			else if (Provider.Name == "AUX_DashBoard_Corporativo_TB_TAREFA")
 			{
-				return new _25246FASTRAX_TB_TAREFAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_TAREFAItem("BD_DADOS");
 			}
 			else if (Provider.Name == "AUX_DashBoard_Corporativo_VIEW_TAREFAS")
 			{
-				return new _25246FASTRAX_VIEW_TAREFASItem("25246FASTRAX");
+				return new _BD_DADOS_VIEW_TAREFASItem("BD_DADOS");
 			}
 			else if (Provider.Name == "AUX_DashBoard_Corporativo_TB_VENDAS")
 			{
-				return new _25246FASTRAX_TB_VENDASItem("25246FASTRAX");
+				return new _BD_DADOS_TB_VENDASItem("BD_DADOS");
 			}
 			else if (Provider.Name == "AUX_DashBoard_Corporativo_TB_ASISTENCIA")
 			{
-				return new _25246FASTRAX_TB_ASISTENCIAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_ASISTENCIAItem("BD_DADOS");
 			}
 			return null;
 		}
@@ -324,7 +324,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " + "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '_' + " + Dao.PoeColAspas("CLI_NOME") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("CLI_CODFASTRAX") + " FROM  " + Dao.PoeColAspas("TB_CLIENTE") + " WHERE " + Dao.PoeColAspas("CLI_CODFASTRAX") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -338,7 +338,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillCBFiltroCliente(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string DisplayFields = "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '_' + " + Dao.PoeColAspas("CLI_NOME");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "TB_CLIENTE", DisplayFields, "CLI_CODFASTRAX", Dao, false, "", GComboBoxOnDemandStyle.Contains, Dao.PoeColAspas("CLI_NOME") + " Asc", false, "");
 		}
@@ -347,7 +347,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				string CboFilter = "";
 				try
 				{
@@ -367,7 +367,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillCBLinea_Producto(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string CboFilter = "";
 			try
 			{
@@ -382,7 +382,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " + "cast(" + Dao.PoeColAspas("PROD_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("PROD_NOME") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("PROD_CODFASTRAX") + " FROM  " + Dao.PoeColAspas("TB_PRODUTO") + " WHERE " + Dao.PoeColAspas("PROD_CODFASTRAX") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -396,7 +396,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillCBFiltroProduto(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string DisplayFields = "cast(" + Dao.PoeColAspas("PROD_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("PROD_NOME");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "TB_PRODUTO", DisplayFields, "PROD_CODFASTRAX", Dao, false, "", GComboBoxOnDemandStyle.Contains, Dao.PoeColAspas("PROD_NOME") + " Asc", false, "");
 		}
@@ -405,7 +405,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				string CboFilter = "";
 				try
 				{
@@ -425,7 +425,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillComboBox1(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string CboFilter = "";
 			try
 			{
@@ -439,7 +439,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " + "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("CLI_CODFASTRAX") + " FROM  " + Dao.PoeColAspas("TB_CLIENTE") + " WHERE " + Dao.PoeColAspas("CLI_CODFASTRAX") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -453,7 +453,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillGrid2_GridColumn133_ComboBox(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string DisplayFields = "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "TB_CLIENTE", DisplayFields, "CLI_CODFASTRAX", Dao, false, "", GComboBoxOnDemandStyle.Contains, "", false, "");
 		}
@@ -462,7 +462,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " + "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("CLI_CODFASTRAX") + " FROM  " + Dao.PoeColAspas("TB_CLIENTE") + " WHERE " + Dao.PoeColAspas("CLI_CODFASTRAX") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -476,7 +476,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillGrid3_GridColumn105_ComboBox(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string DisplayFields = "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "TB_CLIENTE", DisplayFields, "CLI_CODFASTRAX", Dao, false, "", GComboBoxOnDemandStyle.Contains, "", false, "");
 		}
@@ -485,7 +485,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " +  Dao.PoeColAspas("PROD_NOME") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("PROD_CODFASTRAX") + " FROM  " + Dao.PoeColAspas("TB_PRODUTO") + " WHERE " + Dao.PoeColAspas("PROD_CODFASTRAX") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -499,7 +499,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillGrid3_GridColumn131_ComboBox(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string DisplayFields =  Dao.PoeColAspas("PROD_NOME");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "TB_PRODUTO", DisplayFields, "PROD_CODFASTRAX", Dao, false, "", GComboBoxOnDemandStyle.Contains, "", false, "");
 		}
@@ -550,7 +550,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " + "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("CLI_CODFASTRAX") + " FROM  " + Dao.PoeColAspas("TB_CLIENTE") + " WHERE " + Dao.PoeColAspas("CLI_CODFASTRAX") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -564,7 +564,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillGrid6_GridColumn117_ComboBox(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string DisplayFields = "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "TB_CLIENTE", DisplayFields, "CLI_CODFASTRAX", Dao, false, "", GComboBoxOnDemandStyle.Contains, "", false, "");
 		}
@@ -573,7 +573,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " +  Dao.PoeColAspas("PROD_NOME") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("PROD_CODFASTRAX") + " FROM  " + Dao.PoeColAspas("TB_PRODUTO") + " WHERE " + Dao.PoeColAspas("PROD_CODFASTRAX") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -587,7 +587,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillGrid6_GridColumn132_ComboBox(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string DisplayFields =  Dao.PoeColAspas("PROD_NOME");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "TB_PRODUTO", DisplayFields, "PROD_CODFASTRAX", Dao, false, "", GComboBoxOnDemandStyle.Contains, "", false, "");
 		}
@@ -596,7 +596,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " +  Dao.PoeColAspas("NOMELONG") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("NOMELONG") + " FROM  " + Dao.PoeColAspas("VW_COMPRA_PREVISAO") + " WHERE " + Dao.PoeColAspas("NOMELONG") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -610,7 +610,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillGrid7_GridColumn128_ComboBox(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string DisplayFields =  Dao.PoeColAspas("NOMELONG");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "VW_COMPRA_PREVISAO", DisplayFields, "NOMELONG", Dao, false, "", GComboBoxOnDemandStyle.Contains, "", false, "");
 		}
@@ -619,7 +619,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " +  Dao.PoeColAspas("PROD_NOME") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("PROD_NOME") + " FROM  " + Dao.PoeColAspas("TEMPO_ESTOQUE") + " WHERE " + Dao.PoeColAspas("PROD_NOME") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -633,7 +633,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillGrid8_GridColumn135_ComboBox(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
+			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
 			string DisplayFields =  Dao.PoeColAspas("PROD_NOME");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "TEMPO_ESTOQUE", DisplayFields, "PROD_NOME", Dao, false, "", GComboBoxOnDemandStyle.Contains, "", false, "");
 		}
@@ -649,17 +649,17 @@ namespace PROJETO.DataProviders
 			switch (GridColumnId)
 			{
 				case "Grid2_GridColumn133":
-					Dao = Utility.GetDAO("25246FASTRAX");
+					Dao = Utility.GetDAO("BD_DADOS");
 					dt = Dao.RunSql(String.Format("SELECT " + "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME") + " FROM " + Dao.PoeColAspas("TB_CLIENTE") + " WHERE " + Dao.PoeColAspas("CLI_CODFASTRAX") + " = '{0}'", FieldId)).Tables[0];
 					if (dt.Rows.Count > 0) return dt.Rows[0][0].ToString();
 					return "";
 				case "Grid3_GridColumn105":
-					Dao = Utility.GetDAO("25246FASTRAX");
+					Dao = Utility.GetDAO("BD_DADOS");
 					dt = Dao.RunSql(String.Format("SELECT " + "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME") + " FROM " + Dao.PoeColAspas("TB_CLIENTE") + " WHERE " + Dao.PoeColAspas("CLI_CODFASTRAX") + " = '{0}'", FieldId)).Tables[0];
 					if (dt.Rows.Count > 0) return dt.Rows[0][0].ToString();
 					return "";
 				case "Grid3_GridColumn131":
-					Dao = Utility.GetDAO("25246FASTRAX");
+					Dao = Utility.GetDAO("BD_DADOS");
 					dt = Dao.RunSql(String.Format("SELECT " +  Dao.PoeColAspas("PROD_NOME") + " FROM " + Dao.PoeColAspas("TB_PRODUTO") + " WHERE " + Dao.PoeColAspas("PROD_CODFASTRAX") + " = '{0}'", FieldId)).Tables[0];
 					if (dt.Rows.Count > 0) return dt.Rows[0][0].ToString();
 					return "";
@@ -672,22 +672,22 @@ namespace PROJETO.DataProviders
 					if (Grid6_GridColumn116Item != null) return Grid6_GridColumn116Item.Text;
 					return "";
 				case "Grid6_GridColumn117":
-					Dao = Utility.GetDAO("25246FASTRAX");
+					Dao = Utility.GetDAO("BD_DADOS");
 					dt = Dao.RunSql(String.Format("SELECT " + "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME") + " FROM " + Dao.PoeColAspas("TB_CLIENTE") + " WHERE " + Dao.PoeColAspas("CLI_CODFASTRAX") + " = '{0}'", FieldId)).Tables[0];
 					if (dt.Rows.Count > 0) return dt.Rows[0][0].ToString();
 					return "";
 				case "Grid6_GridColumn132":
-					Dao = Utility.GetDAO("25246FASTRAX");
+					Dao = Utility.GetDAO("BD_DADOS");
 					dt = Dao.RunSql(String.Format("SELECT " +  Dao.PoeColAspas("PROD_NOME") + " FROM " + Dao.PoeColAspas("TB_PRODUTO") + " WHERE " + Dao.PoeColAspas("PROD_CODFASTRAX") + " = '{0}'", FieldId)).Tables[0];
 					if (dt.Rows.Count > 0) return dt.Rows[0][0].ToString();
 					return "";
 				case "Grid7_GridColumn128":
-					Dao = Utility.GetDAO("25246FASTRAX");
+					Dao = Utility.GetDAO("BD_DADOS");
 					dt = Dao.RunSql(String.Format("SELECT " +  Dao.PoeColAspas("NOMELONG") + " FROM " + Dao.PoeColAspas("VW_COMPRA_PREVISAO") + " WHERE " + Dao.PoeColAspas("NOMELONG") + " = '{0}'", FieldId)).Tables[0];
 					if (dt.Rows.Count > 0) return dt.Rows[0][0].ToString();
 					return "";
 				case "Grid8_GridColumn135":
-					Dao = Utility.GetDAO("25246FASTRAX");
+					Dao = Utility.GetDAO("BD_DADOS");
 					dt = Dao.RunSql(String.Format("SELECT " +  Dao.PoeColAspas("PROD_NOME") + " FROM " + Dao.PoeColAspas("TEMPO_ESTOQUE") + " WHERE " + Dao.PoeColAspas("PROD_NOME") + " = '{0}'", FieldId)).Tables[0];
 					if (dt.Rows.Count > 0) return dt.Rows[0][0].ToString();
 					return "";
@@ -747,7 +747,7 @@ namespace PROJETO.DataProviders
 		{
 			return 6;
 		}
-		private _25246FASTRAX_TB_TAREFADataProvider _DataProvider;
+		private _BD_DADOS_TB_TAREFADataProvider _DataProvider;
 		
 		public override GeneralDataProvider DataProvider
 		{
@@ -757,21 +757,21 @@ namespace PROJETO.DataProviders
 			}
 			set
 			{
-				_DataProvider = value as _25246FASTRAX_TB_TAREFADataProvider;
+				_DataProvider = value as _BD_DADOS_TB_TAREFADataProvider;
 			}
 		}
 
 		public DashBoard_CorporativoPageProvider ParentPageProvider;
 
-		public _25246FASTRAX_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
-		public _25246FASTRAX_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
-		public _25246FASTRAX_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
-		public _25246FASTRAX_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
-		public _25246FASTRAX_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
+		public _BD_DADOS_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
+		public _BD_DADOS_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
+		public _BD_DADOS_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
+		public _BD_DADOS_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
+		public _BD_DADOS_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
 		
 		public override string TableName { get { return "TB_TAREFA"; } }
 
-		public override string DatabaseName { get { return "25246FASTRAX"; } }
+		public override string DatabaseName { get { return "BD_DADOS"; } }
 
 		public override string FormID { get { return "29846"; } }
 		
@@ -793,50 +793,50 @@ namespace PROJETO.DataProviders
 		public DashBoard_Corporativo_Grid2GridDataProvider(DashBoard_CorporativoPageProvider ParentProvider)
 		{
 			ParentPageProvider = ParentProvider;
-			DataProvider = new _25246FASTRAX_TB_TAREFADataProvider(this, TableName, DatabaseName, "PK_TB_TAREFA", "DashBoard_Corporativo_Grid2");
+			DataProvider = new _BD_DADOS_TB_TAREFADataProvider(this, TableName, DatabaseName, "PK_TB_TAREFA", "DashBoard_Corporativo_Grid2");
 			MainProvider = this;
 			MainProvider.DataProvider.PageProvider = this;
-			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _25246FASTRAX_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "25246FASTRAX", "", "TB_NEGOCIO");
+			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _BD_DADOS_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "BD_DADOS", "", "TB_NEGOCIO");
 			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _25246FASTRAX_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "25246FASTRAX", "", "TB_TAREFA");
+			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _BD_DADOS_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "BD_DADOS", "", "TB_TAREFA");
 			AUX_DashBoard_Corporativo_TB_TAREFAProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _25246FASTRAX_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "25246FASTRAX", "", "VIEW_TAREFAS");
+			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _BD_DADOS_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "BD_DADOS", "", "VIEW_TAREFAS");
 			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _25246FASTRAX_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "25246FASTRAX", "", "TB_VENDAS");
+			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _BD_DADOS_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "BD_DADOS", "", "TB_VENDAS");
 			AUX_DashBoard_Corporativo_TB_VENDASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _25246FASTRAX_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "25246FASTRAX", "", "TB_ASISTENCIA");
+			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _BD_DADOS_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "BD_DADOS", "", "TB_ASISTENCIA");
 			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider.Dao = MainProvider.DataProvider.Dao;
 		}
-		public _25246FASTRAX_TB_TAREFAItem GetDataProviderItem()
+		public _BD_DADOS_TB_TAREFAItem GetDataProviderItem()
 		{
-			return GetDataProviderItem(MainProvider.DataProvider) as _25246FASTRAX_TB_TAREFAItem;
+			return GetDataProviderItem(MainProvider.DataProvider) as _BD_DADOS_TB_TAREFAItem;
 		}
 
 		public override GeneralDataProviderItem GetDataProviderItem(GeneralDataProvider Provider)
 		{
 			if (Provider.Name == "DashBoard_Corporativo_Grid2")
 			{
-				return new _25246FASTRAX_TB_TAREFAItem(DatabaseName);
+				return new _BD_DADOS_TB_TAREFAItem(DatabaseName);
 			}
-			else if (Provider is _25246FASTRAX_TB_NEGOCIODataProvider)
+			else if (Provider is _BD_DADOS_TB_NEGOCIODataProvider)
 			{
-				return new _25246FASTRAX_TB_NEGOCIOItem("25246FASTRAX");
+				return new _BD_DADOS_TB_NEGOCIOItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_TAREFADataProvider)
+			else if (Provider is _BD_DADOS_TB_TAREFADataProvider)
 			{
-				return new _25246FASTRAX_TB_TAREFAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_TAREFAItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_VIEW_TAREFASDataProvider)
+			else if (Provider is _BD_DADOS_VIEW_TAREFASDataProvider)
 			{
-				return new _25246FASTRAX_VIEW_TAREFASItem("25246FASTRAX");
+				return new _BD_DADOS_VIEW_TAREFASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_VENDASDataProvider)
+			else if (Provider is _BD_DADOS_TB_VENDASDataProvider)
 			{
-				return new _25246FASTRAX_TB_VENDASItem("25246FASTRAX");
+				return new _BD_DADOS_TB_VENDASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_ASISTENCIADataProvider)
+			else if (Provider is _BD_DADOS_TB_ASISTENCIADataProvider)
 			{
-				return new _25246FASTRAX_TB_ASISTENCIAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_ASISTENCIAItem("BD_DADOS");
 			}
 			return null;
 		}
@@ -1085,7 +1085,7 @@ namespace PROJETO.DataProviders
 		{
 			return 6;
 		}
-		private _25246FASTRAX_VIEW_VENDAS_PENDENTESDataProvider _DataProvider;
+		private _BD_DADOS_VIEW_VENDAS_PENDENTESDataProvider _DataProvider;
 		
 		public override GeneralDataProvider DataProvider
 		{
@@ -1095,21 +1095,21 @@ namespace PROJETO.DataProviders
 			}
 			set
 			{
-				_DataProvider = value as _25246FASTRAX_VIEW_VENDAS_PENDENTESDataProvider;
+				_DataProvider = value as _BD_DADOS_VIEW_VENDAS_PENDENTESDataProvider;
 			}
 		}
 
 		public DashBoard_CorporativoPageProvider ParentPageProvider;
 
-		public _25246FASTRAX_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
-		public _25246FASTRAX_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
-		public _25246FASTRAX_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
-		public _25246FASTRAX_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
-		public _25246FASTRAX_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
+		public _BD_DADOS_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
+		public _BD_DADOS_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
+		public _BD_DADOS_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
+		public _BD_DADOS_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
+		public _BD_DADOS_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
 		
 		public override string TableName { get { return "VIEW_VENDAS_PENDENTES"; } }
 
-		public override string DatabaseName { get { return "25246FASTRAX"; } }
+		public override string DatabaseName { get { return "BD_DADOS"; } }
 
 		public override string FormID { get { return "29846"; } }
 		
@@ -1131,50 +1131,50 @@ namespace PROJETO.DataProviders
 		public DashBoard_Corporativo_Grid3GridDataProvider(DashBoard_CorporativoPageProvider ParentProvider)
 		{
 			ParentPageProvider = ParentProvider;
-			DataProvider = new _25246FASTRAX_VIEW_VENDAS_PENDENTESDataProvider(this, TableName, DatabaseName, "", "DashBoard_Corporativo_Grid3");
+			DataProvider = new _BD_DADOS_VIEW_VENDAS_PENDENTESDataProvider(this, TableName, DatabaseName, "", "DashBoard_Corporativo_Grid3");
 			MainProvider = this;
 			MainProvider.DataProvider.PageProvider = this;
-			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _25246FASTRAX_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "25246FASTRAX", "", "TB_NEGOCIO");
+			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _BD_DADOS_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "BD_DADOS", "", "TB_NEGOCIO");
 			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _25246FASTRAX_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "25246FASTRAX", "", "TB_TAREFA");
+			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _BD_DADOS_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "BD_DADOS", "", "TB_TAREFA");
 			AUX_DashBoard_Corporativo_TB_TAREFAProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _25246FASTRAX_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "25246FASTRAX", "", "VIEW_TAREFAS");
+			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _BD_DADOS_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "BD_DADOS", "", "VIEW_TAREFAS");
 			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _25246FASTRAX_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "25246FASTRAX", "", "TB_VENDAS");
+			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _BD_DADOS_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "BD_DADOS", "", "TB_VENDAS");
 			AUX_DashBoard_Corporativo_TB_VENDASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _25246FASTRAX_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "25246FASTRAX", "", "TB_ASISTENCIA");
+			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _BD_DADOS_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "BD_DADOS", "", "TB_ASISTENCIA");
 			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider.Dao = MainProvider.DataProvider.Dao;
 		}
-		public _25246FASTRAX_VIEW_VENDAS_PENDENTESItem GetDataProviderItem()
+		public _BD_DADOS_VIEW_VENDAS_PENDENTESItem GetDataProviderItem()
 		{
-			return GetDataProviderItem(MainProvider.DataProvider) as _25246FASTRAX_VIEW_VENDAS_PENDENTESItem;
+			return GetDataProviderItem(MainProvider.DataProvider) as _BD_DADOS_VIEW_VENDAS_PENDENTESItem;
 		}
 
 		public override GeneralDataProviderItem GetDataProviderItem(GeneralDataProvider Provider)
 		{
 			if (Provider.Name == "DashBoard_Corporativo_Grid3")
 			{
-				return new _25246FASTRAX_VIEW_VENDAS_PENDENTESItem(DatabaseName);
+				return new _BD_DADOS_VIEW_VENDAS_PENDENTESItem(DatabaseName);
 			}
-			else if (Provider is _25246FASTRAX_TB_NEGOCIODataProvider)
+			else if (Provider is _BD_DADOS_TB_NEGOCIODataProvider)
 			{
-				return new _25246FASTRAX_TB_NEGOCIOItem("25246FASTRAX");
+				return new _BD_DADOS_TB_NEGOCIOItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_TAREFADataProvider)
+			else if (Provider is _BD_DADOS_TB_TAREFADataProvider)
 			{
-				return new _25246FASTRAX_TB_TAREFAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_TAREFAItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_VIEW_TAREFASDataProvider)
+			else if (Provider is _BD_DADOS_VIEW_TAREFASDataProvider)
 			{
-				return new _25246FASTRAX_VIEW_TAREFASItem("25246FASTRAX");
+				return new _BD_DADOS_VIEW_TAREFASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_VENDASDataProvider)
+			else if (Provider is _BD_DADOS_TB_VENDASDataProvider)
 			{
-				return new _25246FASTRAX_TB_VENDASItem("25246FASTRAX");
+				return new _BD_DADOS_TB_VENDASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_ASISTENCIADataProvider)
+			else if (Provider is _BD_DADOS_TB_ASISTENCIADataProvider)
 			{
-				return new _25246FASTRAX_TB_ASISTENCIAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_ASISTENCIAItem("BD_DADOS");
 			}
 			return null;
 		}
@@ -1451,7 +1451,7 @@ namespace PROJETO.DataProviders
 		{
 			return 6;
 		}
-		private _25246FASTRAX_VIEW_TB_ASISTENCIADataProvider _DataProvider;
+		private _BD_DADOS_VIEW_TB_ASISTENCIADataProvider _DataProvider;
 		
 		public override GeneralDataProvider DataProvider
 		{
@@ -1461,21 +1461,21 @@ namespace PROJETO.DataProviders
 			}
 			set
 			{
-				_DataProvider = value as _25246FASTRAX_VIEW_TB_ASISTENCIADataProvider;
+				_DataProvider = value as _BD_DADOS_VIEW_TB_ASISTENCIADataProvider;
 			}
 		}
 
 		public DashBoard_CorporativoPageProvider ParentPageProvider;
 
-		public _25246FASTRAX_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
-		public _25246FASTRAX_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
-		public _25246FASTRAX_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
-		public _25246FASTRAX_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
-		public _25246FASTRAX_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
+		public _BD_DADOS_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
+		public _BD_DADOS_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
+		public _BD_DADOS_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
+		public _BD_DADOS_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
+		public _BD_DADOS_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
 		
 		public override string TableName { get { return "VIEW_TB_ASISTENCIA"; } }
 
-		public override string DatabaseName { get { return "25246FASTRAX"; } }
+		public override string DatabaseName { get { return "BD_DADOS"; } }
 
 		public override string FormID { get { return "29846"; } }
 		
@@ -1497,50 +1497,50 @@ namespace PROJETO.DataProviders
 		public Grid5GridDataProvider(DashBoard_CorporativoPageProvider ParentProvider)
 		{
 			ParentPageProvider = ParentProvider;
-			DataProvider = new _25246FASTRAX_VIEW_TB_ASISTENCIADataProvider(this, TableName, DatabaseName, "", "Grid5");
+			DataProvider = new _BD_DADOS_VIEW_TB_ASISTENCIADataProvider(this, TableName, DatabaseName, "", "Grid5");
 			MainProvider = this;
 			MainProvider.DataProvider.PageProvider = this;
-			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _25246FASTRAX_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "25246FASTRAX", "", "TB_NEGOCIO");
+			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _BD_DADOS_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "BD_DADOS", "", "TB_NEGOCIO");
 			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _25246FASTRAX_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "25246FASTRAX", "", "TB_TAREFA");
+			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _BD_DADOS_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "BD_DADOS", "", "TB_TAREFA");
 			AUX_DashBoard_Corporativo_TB_TAREFAProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _25246FASTRAX_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "25246FASTRAX", "", "VIEW_TAREFAS");
+			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _BD_DADOS_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "BD_DADOS", "", "VIEW_TAREFAS");
 			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _25246FASTRAX_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "25246FASTRAX", "", "TB_VENDAS");
+			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _BD_DADOS_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "BD_DADOS", "", "TB_VENDAS");
 			AUX_DashBoard_Corporativo_TB_VENDASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _25246FASTRAX_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "25246FASTRAX", "", "TB_ASISTENCIA");
+			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _BD_DADOS_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "BD_DADOS", "", "TB_ASISTENCIA");
 			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider.Dao = MainProvider.DataProvider.Dao;
 		}
-		public _25246FASTRAX_VIEW_TB_ASISTENCIAItem GetDataProviderItem()
+		public _BD_DADOS_VIEW_TB_ASISTENCIAItem GetDataProviderItem()
 		{
-			return GetDataProviderItem(MainProvider.DataProvider) as _25246FASTRAX_VIEW_TB_ASISTENCIAItem;
+			return GetDataProviderItem(MainProvider.DataProvider) as _BD_DADOS_VIEW_TB_ASISTENCIAItem;
 		}
 
 		public override GeneralDataProviderItem GetDataProviderItem(GeneralDataProvider Provider)
 		{
 			if (Provider.Name == "Grid5")
 			{
-				return new _25246FASTRAX_VIEW_TB_ASISTENCIAItem(DatabaseName);
+				return new _BD_DADOS_VIEW_TB_ASISTENCIAItem(DatabaseName);
 			}
-			else if (Provider is _25246FASTRAX_TB_NEGOCIODataProvider)
+			else if (Provider is _BD_DADOS_TB_NEGOCIODataProvider)
 			{
-				return new _25246FASTRAX_TB_NEGOCIOItem("25246FASTRAX");
+				return new _BD_DADOS_TB_NEGOCIOItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_TAREFADataProvider)
+			else if (Provider is _BD_DADOS_TB_TAREFADataProvider)
 			{
-				return new _25246FASTRAX_TB_TAREFAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_TAREFAItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_VIEW_TAREFASDataProvider)
+			else if (Provider is _BD_DADOS_VIEW_TAREFASDataProvider)
 			{
-				return new _25246FASTRAX_VIEW_TAREFASItem("25246FASTRAX");
+				return new _BD_DADOS_VIEW_TAREFASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_VENDASDataProvider)
+			else if (Provider is _BD_DADOS_TB_VENDASDataProvider)
 			{
-				return new _25246FASTRAX_TB_VENDASItem("25246FASTRAX");
+				return new _BD_DADOS_TB_VENDASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_ASISTENCIADataProvider)
+			else if (Provider is _BD_DADOS_TB_ASISTENCIADataProvider)
 			{
-				return new _25246FASTRAX_TB_ASISTENCIAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_ASISTENCIAItem("BD_DADOS");
 			}
 			return null;
 		}
@@ -1973,7 +1973,7 @@ namespace PROJETO.DataProviders
 		{
 			return 6;
 		}
-		private _25246FASTRAX_VIEW_NOTICIASDataProvider _DataProvider;
+		private _BD_DADOS_VIEW_NOTICIASDataProvider _DataProvider;
 		
 		public override GeneralDataProvider DataProvider
 		{
@@ -1983,21 +1983,21 @@ namespace PROJETO.DataProviders
 			}
 			set
 			{
-				_DataProvider = value as _25246FASTRAX_VIEW_NOTICIASDataProvider;
+				_DataProvider = value as _BD_DADOS_VIEW_NOTICIASDataProvider;
 			}
 		}
 
 		public DashBoard_CorporativoPageProvider ParentPageProvider;
 
-		public _25246FASTRAX_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
-		public _25246FASTRAX_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
-		public _25246FASTRAX_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
-		public _25246FASTRAX_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
-		public _25246FASTRAX_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
+		public _BD_DADOS_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
+		public _BD_DADOS_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
+		public _BD_DADOS_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
+		public _BD_DADOS_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
+		public _BD_DADOS_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
 		
 		public override string TableName { get { return "VIEW_NOTICIAS"; } }
 
-		public override string DatabaseName { get { return "25246FASTRAX"; } }
+		public override string DatabaseName { get { return "BD_DADOS"; } }
 
 		public override string FormID { get { return "29846"; } }
 		
@@ -2019,50 +2019,50 @@ namespace PROJETO.DataProviders
 		public DashBoard_Corporativo_Grid4GridDataProvider(DashBoard_CorporativoPageProvider ParentProvider)
 		{
 			ParentPageProvider = ParentProvider;
-			DataProvider = new _25246FASTRAX_VIEW_NOTICIASDataProvider(this, TableName, DatabaseName, "", "DashBoard_Corporativo_Grid4");
+			DataProvider = new _BD_DADOS_VIEW_NOTICIASDataProvider(this, TableName, DatabaseName, "", "DashBoard_Corporativo_Grid4");
 			MainProvider = this;
 			MainProvider.DataProvider.PageProvider = this;
-			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _25246FASTRAX_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "25246FASTRAX", "", "TB_NEGOCIO");
+			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _BD_DADOS_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "BD_DADOS", "", "TB_NEGOCIO");
 			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _25246FASTRAX_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "25246FASTRAX", "", "TB_TAREFA");
+			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _BD_DADOS_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "BD_DADOS", "", "TB_TAREFA");
 			AUX_DashBoard_Corporativo_TB_TAREFAProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _25246FASTRAX_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "25246FASTRAX", "", "VIEW_TAREFAS");
+			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _BD_DADOS_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "BD_DADOS", "", "VIEW_TAREFAS");
 			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _25246FASTRAX_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "25246FASTRAX", "", "TB_VENDAS");
+			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _BD_DADOS_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "BD_DADOS", "", "TB_VENDAS");
 			AUX_DashBoard_Corporativo_TB_VENDASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _25246FASTRAX_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "25246FASTRAX", "", "TB_ASISTENCIA");
+			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _BD_DADOS_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "BD_DADOS", "", "TB_ASISTENCIA");
 			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider.Dao = MainProvider.DataProvider.Dao;
 		}
-		public _25246FASTRAX_VIEW_NOTICIASItem GetDataProviderItem()
+		public _BD_DADOS_VIEW_NOTICIASItem GetDataProviderItem()
 		{
-			return GetDataProviderItem(MainProvider.DataProvider) as _25246FASTRAX_VIEW_NOTICIASItem;
+			return GetDataProviderItem(MainProvider.DataProvider) as _BD_DADOS_VIEW_NOTICIASItem;
 		}
 
 		public override GeneralDataProviderItem GetDataProviderItem(GeneralDataProvider Provider)
 		{
 			if (Provider.Name == "DashBoard_Corporativo_Grid4")
 			{
-				return new _25246FASTRAX_VIEW_NOTICIASItem(DatabaseName);
+				return new _BD_DADOS_VIEW_NOTICIASItem(DatabaseName);
 			}
-			else if (Provider is _25246FASTRAX_TB_NEGOCIODataProvider)
+			else if (Provider is _BD_DADOS_TB_NEGOCIODataProvider)
 			{
-				return new _25246FASTRAX_TB_NEGOCIOItem("25246FASTRAX");
+				return new _BD_DADOS_TB_NEGOCIOItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_TAREFADataProvider)
+			else if (Provider is _BD_DADOS_TB_TAREFADataProvider)
 			{
-				return new _25246FASTRAX_TB_TAREFAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_TAREFAItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_VIEW_TAREFASDataProvider)
+			else if (Provider is _BD_DADOS_VIEW_TAREFASDataProvider)
 			{
-				return new _25246FASTRAX_VIEW_TAREFASItem("25246FASTRAX");
+				return new _BD_DADOS_VIEW_TAREFASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_VENDASDataProvider)
+			else if (Provider is _BD_DADOS_TB_VENDASDataProvider)
 			{
-				return new _25246FASTRAX_TB_VENDASItem("25246FASTRAX");
+				return new _BD_DADOS_TB_VENDASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_ASISTENCIADataProvider)
+			else if (Provider is _BD_DADOS_TB_ASISTENCIADataProvider)
 			{
-				return new _25246FASTRAX_TB_ASISTENCIAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_ASISTENCIAItem("BD_DADOS");
 			}
 			return null;
 		}
@@ -2284,7 +2284,7 @@ namespace PROJETO.DataProviders
 		{
 			return 6;
 		}
-		private _25246FASTRAX_VIEW_PRE_VENDASDataProvider _DataProvider;
+		private _BD_DADOS_VIEW_PRE_VENDASDataProvider _DataProvider;
 		
 		public override GeneralDataProvider DataProvider
 		{
@@ -2294,21 +2294,21 @@ namespace PROJETO.DataProviders
 			}
 			set
 			{
-				_DataProvider = value as _25246FASTRAX_VIEW_PRE_VENDASDataProvider;
+				_DataProvider = value as _BD_DADOS_VIEW_PRE_VENDASDataProvider;
 			}
 		}
 
 		public DashBoard_CorporativoPageProvider ParentPageProvider;
 
-		public _25246FASTRAX_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
-		public _25246FASTRAX_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
-		public _25246FASTRAX_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
-		public _25246FASTRAX_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
-		public _25246FASTRAX_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
+		public _BD_DADOS_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
+		public _BD_DADOS_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
+		public _BD_DADOS_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
+		public _BD_DADOS_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
+		public _BD_DADOS_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
 		
 		public override string TableName { get { return "VIEW_PRE_VENDAS"; } }
 
-		public override string DatabaseName { get { return "25246FASTRAX"; } }
+		public override string DatabaseName { get { return "BD_DADOS"; } }
 
 		public override string FormID { get { return "29846"; } }
 		
@@ -2330,50 +2330,50 @@ namespace PROJETO.DataProviders
 		public DashBoard_Corporativo_Grid6GridDataProvider(DashBoard_CorporativoPageProvider ParentProvider)
 		{
 			ParentPageProvider = ParentProvider;
-			DataProvider = new _25246FASTRAX_VIEW_PRE_VENDASDataProvider(this, TableName, DatabaseName, "", "DashBoard_Corporativo_Grid6");
+			DataProvider = new _BD_DADOS_VIEW_PRE_VENDASDataProvider(this, TableName, DatabaseName, "", "DashBoard_Corporativo_Grid6");
 			MainProvider = this;
 			MainProvider.DataProvider.PageProvider = this;
-			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _25246FASTRAX_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "25246FASTRAX", "", "TB_NEGOCIO");
+			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _BD_DADOS_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "BD_DADOS", "", "TB_NEGOCIO");
 			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _25246FASTRAX_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "25246FASTRAX", "", "TB_TAREFA");
+			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _BD_DADOS_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "BD_DADOS", "", "TB_TAREFA");
 			AUX_DashBoard_Corporativo_TB_TAREFAProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _25246FASTRAX_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "25246FASTRAX", "", "VIEW_TAREFAS");
+			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _BD_DADOS_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "BD_DADOS", "", "VIEW_TAREFAS");
 			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _25246FASTRAX_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "25246FASTRAX", "", "TB_VENDAS");
+			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _BD_DADOS_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "BD_DADOS", "", "TB_VENDAS");
 			AUX_DashBoard_Corporativo_TB_VENDASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _25246FASTRAX_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "25246FASTRAX", "", "TB_ASISTENCIA");
+			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _BD_DADOS_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "BD_DADOS", "", "TB_ASISTENCIA");
 			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider.Dao = MainProvider.DataProvider.Dao;
 		}
-		public _25246FASTRAX_VIEW_PRE_VENDASItem GetDataProviderItem()
+		public _BD_DADOS_VIEW_PRE_VENDASItem GetDataProviderItem()
 		{
-			return GetDataProviderItem(MainProvider.DataProvider) as _25246FASTRAX_VIEW_PRE_VENDASItem;
+			return GetDataProviderItem(MainProvider.DataProvider) as _BD_DADOS_VIEW_PRE_VENDASItem;
 		}
 
 		public override GeneralDataProviderItem GetDataProviderItem(GeneralDataProvider Provider)
 		{
 			if (Provider.Name == "DashBoard_Corporativo_Grid6")
 			{
-				return new _25246FASTRAX_VIEW_PRE_VENDASItem(DatabaseName);
+				return new _BD_DADOS_VIEW_PRE_VENDASItem(DatabaseName);
 			}
-			else if (Provider is _25246FASTRAX_TB_NEGOCIODataProvider)
+			else if (Provider is _BD_DADOS_TB_NEGOCIODataProvider)
 			{
-				return new _25246FASTRAX_TB_NEGOCIOItem("25246FASTRAX");
+				return new _BD_DADOS_TB_NEGOCIOItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_TAREFADataProvider)
+			else if (Provider is _BD_DADOS_TB_TAREFADataProvider)
 			{
-				return new _25246FASTRAX_TB_TAREFAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_TAREFAItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_VIEW_TAREFASDataProvider)
+			else if (Provider is _BD_DADOS_VIEW_TAREFASDataProvider)
 			{
-				return new _25246FASTRAX_VIEW_TAREFASItem("25246FASTRAX");
+				return new _BD_DADOS_VIEW_TAREFASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_VENDASDataProvider)
+			else if (Provider is _BD_DADOS_TB_VENDASDataProvider)
 			{
-				return new _25246FASTRAX_TB_VENDASItem("25246FASTRAX");
+				return new _BD_DADOS_TB_VENDASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_ASISTENCIADataProvider)
+			else if (Provider is _BD_DADOS_TB_ASISTENCIADataProvider)
 			{
-				return new _25246FASTRAX_TB_ASISTENCIAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_ASISTENCIAItem("BD_DADOS");
 			}
 			return null;
 		}
@@ -2634,7 +2634,7 @@ namespace PROJETO.DataProviders
 		{
 			return 6;
 		}
-		private _25246FASTRAX_VW_COMPRA_PREVISAODataProvider _DataProvider;
+		private _BD_DADOS_VW_COMPRA_PREVISAODataProvider _DataProvider;
 		
 		public override GeneralDataProvider DataProvider
 		{
@@ -2644,21 +2644,21 @@ namespace PROJETO.DataProviders
 			}
 			set
 			{
-				_DataProvider = value as _25246FASTRAX_VW_COMPRA_PREVISAODataProvider;
+				_DataProvider = value as _BD_DADOS_VW_COMPRA_PREVISAODataProvider;
 			}
 		}
 
 		public DashBoard_CorporativoPageProvider ParentPageProvider;
 
-		public _25246FASTRAX_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
-		public _25246FASTRAX_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
-		public _25246FASTRAX_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
-		public _25246FASTRAX_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
-		public _25246FASTRAX_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
+		public _BD_DADOS_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
+		public _BD_DADOS_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
+		public _BD_DADOS_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
+		public _BD_DADOS_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
+		public _BD_DADOS_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
 		
 		public override string TableName { get { return "VW_COMPRA_PREVISAO"; } }
 
-		public override string DatabaseName { get { return "25246FASTRAX"; } }
+		public override string DatabaseName { get { return "BD_DADOS"; } }
 
 		public override string FormID { get { return "29846"; } }
 		
@@ -2680,50 +2680,50 @@ namespace PROJETO.DataProviders
 		public DashBoard_Corporativo_Grid7GridDataProvider(DashBoard_CorporativoPageProvider ParentProvider)
 		{
 			ParentPageProvider = ParentProvider;
-			DataProvider = new _25246FASTRAX_VW_COMPRA_PREVISAODataProvider(this, TableName, DatabaseName, "", "DashBoard_Corporativo_Grid7");
+			DataProvider = new _BD_DADOS_VW_COMPRA_PREVISAODataProvider(this, TableName, DatabaseName, "", "DashBoard_Corporativo_Grid7");
 			MainProvider = this;
 			MainProvider.DataProvider.PageProvider = this;
-			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _25246FASTRAX_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "25246FASTRAX", "", "TB_NEGOCIO");
+			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _BD_DADOS_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "BD_DADOS", "", "TB_NEGOCIO");
 			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _25246FASTRAX_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "25246FASTRAX", "", "TB_TAREFA");
+			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _BD_DADOS_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "BD_DADOS", "", "TB_TAREFA");
 			AUX_DashBoard_Corporativo_TB_TAREFAProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _25246FASTRAX_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "25246FASTRAX", "", "VIEW_TAREFAS");
+			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _BD_DADOS_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "BD_DADOS", "", "VIEW_TAREFAS");
 			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _25246FASTRAX_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "25246FASTRAX", "", "TB_VENDAS");
+			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _BD_DADOS_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "BD_DADOS", "", "TB_VENDAS");
 			AUX_DashBoard_Corporativo_TB_VENDASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _25246FASTRAX_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "25246FASTRAX", "", "TB_ASISTENCIA");
+			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _BD_DADOS_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "BD_DADOS", "", "TB_ASISTENCIA");
 			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider.Dao = MainProvider.DataProvider.Dao;
 		}
-		public _25246FASTRAX_VW_COMPRA_PREVISAOItem GetDataProviderItem()
+		public _BD_DADOS_VW_COMPRA_PREVISAOItem GetDataProviderItem()
 		{
-			return GetDataProviderItem(MainProvider.DataProvider) as _25246FASTRAX_VW_COMPRA_PREVISAOItem;
+			return GetDataProviderItem(MainProvider.DataProvider) as _BD_DADOS_VW_COMPRA_PREVISAOItem;
 		}
 
 		public override GeneralDataProviderItem GetDataProviderItem(GeneralDataProvider Provider)
 		{
 			if (Provider.Name == "DashBoard_Corporativo_Grid7")
 			{
-				return new _25246FASTRAX_VW_COMPRA_PREVISAOItem(DatabaseName);
+				return new _BD_DADOS_VW_COMPRA_PREVISAOItem(DatabaseName);
 			}
-			else if (Provider is _25246FASTRAX_TB_NEGOCIODataProvider)
+			else if (Provider is _BD_DADOS_TB_NEGOCIODataProvider)
 			{
-				return new _25246FASTRAX_TB_NEGOCIOItem("25246FASTRAX");
+				return new _BD_DADOS_TB_NEGOCIOItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_TAREFADataProvider)
+			else if (Provider is _BD_DADOS_TB_TAREFADataProvider)
 			{
-				return new _25246FASTRAX_TB_TAREFAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_TAREFAItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_VIEW_TAREFASDataProvider)
+			else if (Provider is _BD_DADOS_VIEW_TAREFASDataProvider)
 			{
-				return new _25246FASTRAX_VIEW_TAREFASItem("25246FASTRAX");
+				return new _BD_DADOS_VIEW_TAREFASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_VENDASDataProvider)
+			else if (Provider is _BD_DADOS_TB_VENDASDataProvider)
 			{
-				return new _25246FASTRAX_TB_VENDASItem("25246FASTRAX");
+				return new _BD_DADOS_TB_VENDASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_ASISTENCIADataProvider)
+			else if (Provider is _BD_DADOS_TB_ASISTENCIADataProvider)
 			{
-				return new _25246FASTRAX_TB_ASISTENCIAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_ASISTENCIAItem("BD_DADOS");
 			}
 			return null;
 		}
@@ -2929,7 +2929,7 @@ namespace PROJETO.DataProviders
 		{
 			return 6;
 		}
-		private _25246FASTRAX_VIEW_TEMPO_ESTOQUEDataProvider _DataProvider;
+		private _BD_DADOS_VIEW_TEMPO_ESTOQUEDataProvider _DataProvider;
 		
 		public override GeneralDataProvider DataProvider
 		{
@@ -2939,21 +2939,21 @@ namespace PROJETO.DataProviders
 			}
 			set
 			{
-				_DataProvider = value as _25246FASTRAX_VIEW_TEMPO_ESTOQUEDataProvider;
+				_DataProvider = value as _BD_DADOS_VIEW_TEMPO_ESTOQUEDataProvider;
 			}
 		}
 
 		public DashBoard_CorporativoPageProvider ParentPageProvider;
 
-		public _25246FASTRAX_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
-		public _25246FASTRAX_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
-		public _25246FASTRAX_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
-		public _25246FASTRAX_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
-		public _25246FASTRAX_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
+		public _BD_DADOS_TB_NEGOCIODataProvider AUX_DashBoard_Corporativo_TB_NEGOCIOProvider;
+		public _BD_DADOS_TB_TAREFADataProvider AUX_DashBoard_Corporativo_TB_TAREFAProvider;
+		public _BD_DADOS_VIEW_TAREFASDataProvider AUX_DashBoard_Corporativo_VIEW_TAREFASProvider;
+		public _BD_DADOS_TB_VENDASDataProvider AUX_DashBoard_Corporativo_TB_VENDASProvider;
+		public _BD_DADOS_TB_ASISTENCIADataProvider AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider;
 		
 		public override string TableName { get { return "VIEW_TEMPO_ESTOQUE"; } }
 
-		public override string DatabaseName { get { return "25246FASTRAX"; } }
+		public override string DatabaseName { get { return "BD_DADOS"; } }
 
 		public override string FormID { get { return "29846"; } }
 		
@@ -2975,50 +2975,50 @@ namespace PROJETO.DataProviders
 		public DashBoard_Corporativo_Grid8GridDataProvider(DashBoard_CorporativoPageProvider ParentProvider)
 		{
 			ParentPageProvider = ParentProvider;
-			DataProvider = new _25246FASTRAX_VIEW_TEMPO_ESTOQUEDataProvider(this, TableName, DatabaseName, "", "DashBoard_Corporativo_Grid8");
+			DataProvider = new _BD_DADOS_VIEW_TEMPO_ESTOQUEDataProvider(this, TableName, DatabaseName, "", "DashBoard_Corporativo_Grid8");
 			MainProvider = this;
 			MainProvider.DataProvider.PageProvider = this;
-			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _25246FASTRAX_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "25246FASTRAX", "", "TB_NEGOCIO");
+			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider = new _BD_DADOS_TB_NEGOCIODataProvider(MainProvider, "TB_NEGOCIO", "BD_DADOS", "", "TB_NEGOCIO");
 			AUX_DashBoard_Corporativo_TB_NEGOCIOProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _25246FASTRAX_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "25246FASTRAX", "", "TB_TAREFA");
+			AUX_DashBoard_Corporativo_TB_TAREFAProvider = new _BD_DADOS_TB_TAREFADataProvider(MainProvider, "TB_TAREFA", "BD_DADOS", "", "TB_TAREFA");
 			AUX_DashBoard_Corporativo_TB_TAREFAProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _25246FASTRAX_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "25246FASTRAX", "", "VIEW_TAREFAS");
+			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider = new _BD_DADOS_VIEW_TAREFASDataProvider(MainProvider, "VIEW_TAREFAS", "BD_DADOS", "", "VIEW_TAREFAS");
 			AUX_DashBoard_Corporativo_VIEW_TAREFASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _25246FASTRAX_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "25246FASTRAX", "", "TB_VENDAS");
+			AUX_DashBoard_Corporativo_TB_VENDASProvider = new _BD_DADOS_TB_VENDASDataProvider(MainProvider, "TB_VENDAS", "BD_DADOS", "", "TB_VENDAS");
 			AUX_DashBoard_Corporativo_TB_VENDASProvider.Dao = MainProvider.DataProvider.Dao;
-			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _25246FASTRAX_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "25246FASTRAX", "", "TB_ASISTENCIA");
+			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider = new _BD_DADOS_TB_ASISTENCIADataProvider(MainProvider, "TB_ASISTENCIA", "BD_DADOS", "", "TB_ASISTENCIA");
 			AUX_DashBoard_Corporativo_TB_ASISTENCIAProvider.Dao = MainProvider.DataProvider.Dao;
 		}
-		public _25246FASTRAX_VIEW_TEMPO_ESTOQUEItem GetDataProviderItem()
+		public _BD_DADOS_VIEW_TEMPO_ESTOQUEItem GetDataProviderItem()
 		{
-			return GetDataProviderItem(MainProvider.DataProvider) as _25246FASTRAX_VIEW_TEMPO_ESTOQUEItem;
+			return GetDataProviderItem(MainProvider.DataProvider) as _BD_DADOS_VIEW_TEMPO_ESTOQUEItem;
 		}
 
 		public override GeneralDataProviderItem GetDataProviderItem(GeneralDataProvider Provider)
 		{
 			if (Provider.Name == "DashBoard_Corporativo_Grid8")
 			{
-				return new _25246FASTRAX_VIEW_TEMPO_ESTOQUEItem(DatabaseName);
+				return new _BD_DADOS_VIEW_TEMPO_ESTOQUEItem(DatabaseName);
 			}
-			else if (Provider is _25246FASTRAX_TB_NEGOCIODataProvider)
+			else if (Provider is _BD_DADOS_TB_NEGOCIODataProvider)
 			{
-				return new _25246FASTRAX_TB_NEGOCIOItem("25246FASTRAX");
+				return new _BD_DADOS_TB_NEGOCIOItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_TAREFADataProvider)
+			else if (Provider is _BD_DADOS_TB_TAREFADataProvider)
 			{
-				return new _25246FASTRAX_TB_TAREFAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_TAREFAItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_VIEW_TAREFASDataProvider)
+			else if (Provider is _BD_DADOS_VIEW_TAREFASDataProvider)
 			{
-				return new _25246FASTRAX_VIEW_TAREFASItem("25246FASTRAX");
+				return new _BD_DADOS_VIEW_TAREFASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_VENDASDataProvider)
+			else if (Provider is _BD_DADOS_TB_VENDASDataProvider)
 			{
-				return new _25246FASTRAX_TB_VENDASItem("25246FASTRAX");
+				return new _BD_DADOS_TB_VENDASItem("BD_DADOS");
 			}
-			else if (Provider is _25246FASTRAX_TB_ASISTENCIADataProvider)
+			else if (Provider is _BD_DADOS_TB_ASISTENCIADataProvider)
 			{
-				return new _25246FASTRAX_TB_ASISTENCIAItem("25246FASTRAX");
+				return new _BD_DADOS_TB_ASISTENCIAItem("BD_DADOS");
 			}
 			return null;
 		}
