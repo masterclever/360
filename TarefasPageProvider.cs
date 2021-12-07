@@ -26,7 +26,7 @@ namespace PROJETO.DataProviders
 	/// </summary>
 	public class TarefasPageProvider : GeneralProvider
 	{
-		public _BD_DADOS_TB_CLIENTEDataProvider AUX_Tarefas_TB_CLIENTEProvider;
+		public _25246FASTRAX_TB_CLIENTEDataProvider AUX_Tarefas_TB_CLIENTEProvider;
 		public List<RadComboBoxDataItem> ComboBox1Items
 		{
 			get
@@ -48,20 +48,20 @@ namespace PROJETO.DataProviders
 		public TarefasPageProvider(IGeneralDataProvider Provider)
 		{
 			MainProvider = Provider;
-			MainProvider.DataProvider = new _BD_DADOS_TB_TAREFADataProvider(MainProvider, MainProvider.TableName, MainProvider.DatabaseName, "PK_TB_TAREFA", "Tarefas");
+			MainProvider.DataProvider = new _25246FASTRAX_TB_TAREFADataProvider(MainProvider, MainProvider.TableName, MainProvider.DatabaseName, "PK_TB_TAREFA", "Tarefas");
 			MainProvider.DataProvider.PageProvider = this;
-			AUX_Tarefas_TB_CLIENTEProvider = new _BD_DADOS_TB_CLIENTEDataProvider(MainProvider, "TB_CLIENTE", "BD_DADOS", "PK_TB_CLIENTE", "AUX_Tarefas_TB_CLIENTE");
+			AUX_Tarefas_TB_CLIENTEProvider = new _25246FASTRAX_TB_CLIENTEDataProvider(MainProvider, "TB_CLIENTE", "25246FASTRAX", "PK_TB_CLIENTE", "AUX_Tarefas_TB_CLIENTE");
 		}
 
 		public override GeneralDataProviderItem GetDataProviderItem(GeneralDataProvider Provider)
 		{
 			if (Provider == MainProvider.DataProvider)
 			{ 
-				return new _BD_DADOS_TB_TAREFAItem(MainProvider.DatabaseName);
+				return new _25246FASTRAX_TB_TAREFAItem(MainProvider.DatabaseName);
 			}
 			else if (Provider.Name == "AUX_Tarefas_TB_CLIENTE")
 			{
-				return new _BD_DADOS_TB_CLIENTEItem("BD_DADOS");
+				return new _25246FASTRAX_TB_CLIENTEItem("25246FASTRAX");
 			}
 			return null;
 		}
@@ -188,7 +188,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
+				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
 				string CboFilter = "";
 				try
 				{
@@ -208,7 +208,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillComboBox2(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
+			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
 			string CboFilter = "";
 			try
 			{
@@ -223,7 +223,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
+				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " + "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("CLI_ID") + " FROM  " + Dao.PoeColAspas("TB_CLIENTE") + " WHERE " + Dao.PoeColAspas("CLI_ID") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -237,7 +237,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillComboBox5(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
+			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
 			string DisplayFields = "cast(" + Dao.PoeColAspas("CLI_CODFASTRAX") + " as varchar) " + " + '-' + " + Dao.PoeColAspas("CLI_NOME");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "TB_CLIENTE", DisplayFields, "CLI_ID", Dao, false, "", GComboBoxOnDemandStyle.Contains, "", false, "");
 		}
@@ -246,7 +246,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
+				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
 				string CboFilter = "";
 				try
 				{
@@ -266,7 +266,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillComboBox3(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
+			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
 			string CboFilter = "";
 			try
 			{
@@ -281,7 +281,7 @@ namespace PROJETO.DataProviders
 		{
 			try
 			{
-				DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
+				DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
 				DataRow dr = Dao.RunSql(String.Format("SELECT TOP 1 " +  Dao.PoeColAspas("LOGIN_USER_NAME") +  " as DISPLAY_FIELD, " + Dao.PoeColAspas("LOGIN_USER_NAME") + " FROM  " + Dao.PoeColAspas("TB_LOGIN_USER") + " WHERE " + Dao.PoeColAspas("LOGIN_USER_NAME") + " = '{0}'", Value)).Tables[0].Rows[0];
 				Dao.CloseConnection();
 				Dao.Dispose();
@@ -295,7 +295,7 @@ namespace PROJETO.DataProviders
 		
 		public bool FillComboBox6(RadComboBox ComboBox, int NumberOfItems, string TextFilter, bool AllowFilter)
 		{
-			DataAccessObject Dao = Utility.GetDAO("BD_DADOS");
+			DataAccessObject Dao = Utility.GetDAO("25246FASTRAX");
 			string DisplayFields =  Dao.PoeColAspas("LOGIN_USER_NAME");
 			return Utility.FillComboBox(ComboBox, NumberOfItems, TextFilter, AllowFilter, 15, "TB_LOGIN_USER", DisplayFields, "LOGIN_USER_NAME", Dao, false, "", GComboBoxOnDemandStyle.Contains, "", false, "");
 		}
